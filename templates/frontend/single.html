@@ -7,9 +7,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE html>
 {% load static %}
+{% load widget_tweaks %}
 <html>
 <head>
-<title>Free Style A Ecommerce Category Flat Bootstarp Resposive Website Template | Single :: w3layouts</title>
+<title>Bikeax|Product Details</title>
 <link href="{% static 'frontend/css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all">
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="{% static 'frontend/js/jquery-1.11.0.min.js' %}"></script>
@@ -57,7 +58,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 			<div class="col-md-4 top-header-middle">
-				<a href="index.html"><img src="{% static 'frontend/images/logo-4.png' %}" alt="" /></a>
+				<a href="/"><img src="{% static 'frontend/images/logo-4.png' %}" alt="" /></a>
 			</div>
 			<div class="col-md-4 top-header-right">
 				<div class="cart box_1">
@@ -73,6 +74,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</a>
 						<div class="clearfix"> </div>
 						{% else %}
+						<img src="{% static 'frontend/images/cart-2.png' %}" alt="" />
 						Your cart is empty.
 
 				{% endif %}
@@ -104,8 +106,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">
 			<div class="breadcrumbs-main">
 				<ol class="breadcrumb">
-					<li><a href="index.html">Home</a></li>
-					<li class="active">Lorem Ipsum</li>
+					<li><a href="/">Home</a></li>
+					<li class="active">Product Detail</li>
 				</ol>
 			</div>
 		</div>
@@ -120,16 +122,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="col-md-5 single-top-left">
 						<div class="flexslider">
 							<ul class="slides">
-								<li data-thumb="images/s1.jpg">
+								<li data-thumb="{{ post.Image.url }}">
 									<img src="{{ post.Image.url }}"/>
 								</li>
-								<li data-thumb="images/s2.jpg">
+								<li data-thumb="{{ post.Image.url }}">
 									<img src="{{ post.Image.url }}" />
 								</li>
-								<li data-thumb="images/s3.jpg">
+								<li data-thumb="{{ post.Image.url }}">
 									<img src="{{ post.Image.url }}"/>
 								</li>
-								<li data-thumb="images/s4.jpg">
+								<li data-thumb="{{ post.Image.url }}">
 									<img src="{{ post.Image.url }}"/>
 								</li>
 							</ul>
@@ -151,10 +153,10 @@ $(window).load(function() {
 				<div class="col-md-7 single-top-right">
 					<div class="details-left-info simpleCart_shelfItem">
 						<h3>{{ post.Name }}</h3>
-						<p class="availability">Availability: <span class="color">In stock</span></p>
+						<p class="availability">Availability: {% if post.NumbersAvailable %}<span style="color:green">In stock</span>{% else %}<span class="color">Out of stock</span>{% endif %}</p>
 						<div class="price_single">
 							<span class="reducedfrom">{{ post.Price }}</span>
-							<span class="actual item_price">{{ post.Price }}</span><a href="#">click for offer</a>
+							<span class="actual item_price">{{ post.Price }}</span>
 						</div>
 						<h2 class="quick">Description</h2>
 						<p class="quick_desc"> {{ post.Description}}</p>
@@ -175,27 +177,25 @@ $(window).load(function() {
 							<li><a href="#">7</a></li>
 							<li><a href="#">6</a></li>
 						</ul>
-						<div class="quantity_box">
-							<ul class="product-qty">
-								<span>Quantity:</span>
-								<select>
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
-									<option>6</option>
-								</select>
-							</ul>
-						</div>
-					<div class="clearfix"> </div>
-				<div class="single-but item_add">
-					<form action="{% url "cart_add" post.id %}" method="post">
-              {% csrf_token %}
-              {{ cart_product_form }}
-             <input type="submit" value="add to cart" class="btn btn-primary">
+
+
+					<form action="{% url 'cart_add' post.id %}" method="post">
+              			{% csrf_token %}
+              		<div class="quantity_box">
+										<label for="id_quantity">Quantity:</label>
+										<select name="quantity" id="id_quantity">
+										{% for i in range %}
+										<option value="{{i}}">{{i}}</option>
+										{% endfor %}
+										</select>
+              		{{ cart_product_form.update }}
+              		</div>
+              		<div class="single-but item_add">
+             		<input type="submit" value="add to cart" class="btn btn-primary">
+             		</div>
           </form>
-				</div>
+
+					<div class="clearfix"> </div>
 			</div>
 		</div>
 		<div class="clearfix"></div>

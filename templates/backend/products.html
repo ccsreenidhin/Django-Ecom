@@ -1,6 +1,6 @@
 {% extends 'backend/index.html' %}
 
-
+{% block breadcrump %} Products {% endblock %}
 {% block contentmain %}
 <div style="margin:5px 80px 5px 80px;">
 <div class="float-right">
@@ -20,11 +20,20 @@
     </div>
   </div>
  <table class="table">
+                     <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>No Available</th>
+                        <th>Price</th>
+                        <th></th>
+                    </tr>
+                    </thead>
                     <tbody>
                     {% for it in items %}
                         <tr class="table-row">
                             <td class="table-img">
-                               <img src="{{ it.Image.url }}" alt="" />
+                               {% if it.Image %}<img src="{{ it.Image.url }}" alt="" style="height: 130px; width: auto"/>{% endif %}
                             </td>
                             <td class="table-text">
                             	<h6>{{ it.Name }}</h6>
@@ -38,8 +47,7 @@
                             </td>
 
                              <td >
-							               <button class="button">Delete</button>
-
+							                    <a href="{% url 'product_del' pk=it.pk %}"><button>Delete</button></a>
                             </td>
                         </tr>
                          {% endfor %}

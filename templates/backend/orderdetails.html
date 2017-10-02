@@ -1,0 +1,148 @@
+{% extends 'backend/index.html' %}
+
+{% block breadcrump %} Products {% endblock %}
+{% block contentmain %}
+<div style="margin:5px 80px 5px 80px;">
+
+  <h1>Customer Details</h1>
+   <table class="table">
+                       <thead>
+                      <tr>
+                          <th>Field</th>
+                          <th>Details</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                          <tr class="table-row">
+                              <td class="table-img">
+                                 <h5>Nme</h5>
+                              </td>
+                              <td class="table-text">
+                              	<h5>{{ order.user.name}}</h5>
+                              </td>
+                          </tr>
+                          <tr class="table-row">
+                              <td class="table-img">
+                                 <h5>Phone Number</h5>
+                              </td>
+                              <td class="table-text">
+                                <h5>{{ order.user.phonenumber}}</h5>
+                              </td>
+                          </tr>
+                          <tr class="table-row">
+                              <td class="table-img">
+                                 <h5>Email</h5>
+                              </td>
+                              <td class="table-text">
+                                <h5>{{ order.user.Email}}</h5>
+                              </td>
+                          </tr>
+                          <tr class="table-row">
+                              <td class="table-img">
+                                 <h5>Shipping Address</h5>
+                              </td>
+                              <td class="table-text">
+                                <h5>{{ order.user.ShippingAddress }}</h5>
+                              </td>
+                          </tr>
+                          <tr class="table-row">
+                              <td class="table-img">
+                                 <h5>City</h5>
+                              </td>
+                              <td class="table-text">
+                                <h5>{{ order.user.City}}</h5>
+                              </td>
+                          </tr>
+                          <tr class="table-row">
+                              <td class="table-img">
+                                 <h5>State</h5>
+                              </td>
+                              <td class="table-text">
+                                <h5>{{ order.user.State}}</h5>
+                              </td>
+                          </tr>
+                          <tr class="table-row">
+                              <td class="table-img">
+                                 <h5>Landmark</h5>
+                              </td>
+                              <td class="table-text">
+                                <h5>{{ order.user.Landmark}}</h5>
+                              </td>
+                          </tr>
+                          <tr class="table-row">
+                              <td class="table-img">
+                                 <h5>PIN</h5>
+                              </td>
+                              <td class="table-text">
+                                <h5>{{ order.user.Pincode}}</h5>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+</div>
+
+<div style="margin:40px 80px 5px 80px;">
+<h1>Order Details</h1>
+ <table class="table">
+                <thead>
+                  <tr>
+                      <th>Image</th>
+                      <th>Name</th>
+                      <th>Quntity</th>
+                      <th>Unit Price</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  {% for it in items %}
+                      <tr class="table-row">
+                          <td class="table-img">
+                             {% if it.product.Image %}<img src="{{ it.product.Image.url }}" alt="" style="height: 130px; width: auto"/>{% endif %}
+                          </td>
+                          <td class="table-text">
+                            <h6>{{ it.product.Name }}</h6>
+                              <p>{{ it.product.IDorSNO }}</p>
+                          </td>
+                          <td>
+                            <span class="fam">{{ it.quantity }}</span>
+                          </td>
+                          <td class="march">
+                             {{ it.amount }}
+                          </td>
+                      </tr>
+                       {% endfor %}
+                       <tr class="">
+                           <td class="">
+                              <h5>Total Amont</h5>
+                           </td>
+                           <td class="table-text">
+                             <h5>{{ order.totalamount }}</h5>
+                           </td>
+                       </tr>
+                       <tr class="">
+                           <td class="">
+                              <h5>Order Date</h5>
+                           </td>
+                           <td class="table-text">
+                             <h5>{{ order.checkout_date }}</h5>
+                           </td>
+                       </tr>
+                       <tr class="">
+                           <td class="">
+                              <h5></h5>
+                           </td>
+                           <td class="table-text">
+                             <h5></h5>
+                           </td>
+                       </tr>
+                       <tr class="">
+                           <td class="">
+                              <h5></h5>
+                           </td>
+                           <td class="table-text">
+                             <h5></h5>
+                           </td>
+                       </tr>
+                     </tbody>
+                </table>
+              </div>
+{% endblock %}

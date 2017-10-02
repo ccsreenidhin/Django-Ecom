@@ -8,7 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 {% load static %}
 <html>
 <head>
-<title>ONLINE BIKE ACCESSORIES</title>
+<title>Bikeax | Dashboard</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Online bike accessories, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
@@ -117,10 +117,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 					<li class="dropdown" style="margin-right:90px;">
 		              <a href="#" class="dropdown-toggle dropdown-at" data-toggle="dropdown">
-		              <span class=" name-caret">{{ user }}<i class="caret"></i></span><i></i></a>
-		              <ul class="dropdown-menu " role="menu">
-		             <li><a href=".html"><i class="fa fa-user"></i>Edit Profile</a></li>
-		              </ul>
+		              <span class=" name-caret">Hi {{ user }}</span><i></i></a>
+
 		            </li>
 
 		        </ul>
@@ -168,9 +166,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		    <div class="banner">
 
 				<h2>
-				<a href="index.html">Home</a>
+				<a href="/dashbard/">Home</a>
 				<i class="fa fa-angle-right"></i>
-				<span>Dashboard</span>
+				<span>{% block breadcrump %} Dashboard {% endblock %}</span>
 				</h2>
 		    </div>
 		<!--//banner-->
@@ -182,30 +180,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 		<div class="col-md-4 ">
-			<div class="content-top-1">
+			<div class="content-top-1" style="background: yellow">
 			<div class="col-md-6 top-content">
-				<h5>Tasks</h5>
-				<label>8761</label>
+				<h5>Total Sales</h5>
+				<label>{{ sales }}</label>
 			</div>
 			<div class="col-md-6 top-content1">
 				<div id="demo-pie-1" class="pie-title-center" data-percent="25"> <span class="pie-value"></span> </div>
 			</div>
 			 <div class="clearfix"> </div>
 			</div>
-			<div class="content-top-1">
+			<div class="content-top-1" style="background: skyblue">
 			<div class="col-md-6 top-content">
-				<h5>Points</h5>
-				<label>6295</label>
+				<h5>Total Customers</h5>
+				<label>{{ customers }}</label>
 			</div>
 			<div class="col-md-6 top-content1">
 				<div id="demo-pie-2" class="pie-title-center" data-percent="50"> <span class="pie-value"></span> </div>
 			</div>
 			 <div class="clearfix"> </div>
 			</div>
-			<div class="content-top-1">
+			<div class="content-top-1" style="background: green;">
 			<div class="col-md-6 top-content">
-				<h5>Cards</h5>
-				<label>3401</label>
+				<h5>Total Products</h5>
+				<label>{{ prods }}</label>
 			</div>
 			<div class="col-md-6 top-content1">
 				<div id="demo-pie-3" class="pie-title-center" data-percent="75"> <span class="pie-value"></span> </div>
@@ -218,10 +216,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!----->
 			<div class="content-graph">
 			<div class="content-color">
-				<div class="content-ch"><p><i></i>Chrome </p><span>100%</span>
+				<div class="content-ch"><p><i></i>Sales </p><span>This week</span>
 				<div class="clearfix"> </div>
 				</div>
-				<div class="content-ch1"><p><i></i>Safari</p><span> 50%</span>
+				<div class="content-ch1"><p><i></i>Signups </p><span>This week</span>
 				<div class="clearfix"> </div>
 				</div>
 			</div>
@@ -235,13 +233,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									// Graph Data ##############################################
 									var graphData = [{
 											// Visits
-											data: [ [6, 1300], [7, 1600], [8, 1900], [9, 2100], [10, 2500], [11, 2200], [12, 2000], [13, 1950], [14, 1900], [15, 2000] ],
+											data: {{ sal }},
 											color: '#999999'
 										}, {
 											// Returning Visits
-											data: [ [6, 500], [7, 600], [8, 550], [9, 600], [10, 800], [11, 900], [12, 800], [13, 850], [14, 830], [15, 1000] ],
-											color: '#999999',
-											points: { radius: 4, fillColor: '#7f8c8d' }
+											data: {{ cust }},
+											color: '#666666',
+											points: { radius: 4, fillColor: '#FBB03' }
 										}
 									];
 
@@ -268,7 +266,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											tickDecimals: 2
 										},
 										yaxis: {
-											tickSize: 1000
+											tickSize: 10
 										}
 									});
 
@@ -293,7 +291,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											tickDecimals: 2
 										},
 										yaxis: {
-											tickSize: 1000
+											tickSize: 10
 										}
 									});
 
@@ -333,7 +331,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												$('#tooltip').remove();
 												var x = item.datapoint[0],
 													y = item.datapoint[1];
-													showTooltip(item.pageX, item.pageY, y + ' visitors at ' + x + '.00h');
+													showTooltip(item.pageX, item.pageY, y + ' , ' + x);
 											}
 										} else {
 											$('#tooltip').remove();

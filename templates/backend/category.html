@@ -1,6 +1,6 @@
 {% extends 'backend/index.html' %}
 
-
+{% block breadcrump %} Categories {% endblock %}
 {% block contentmain %}
 <div style="margin:5px 80px 5px 80px;">
 <div class="float-right">
@@ -20,12 +20,17 @@
     </div>
   </div>
   <table class="table">
+                       <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>No of items</th>
+                        <th>Description</th>
+                        <th></th>
+                    </tr>
+                    </thead>
                      <tbody>
                      {% for it in items %}
                          <tr class="table-row">
-                             <td class="table-img">
-                                <img src="{{ it.Image.url }}" alt="" />
-                             </td>
                              <td class="table-text">
                              	<h6>{{ it.Name }}</h6>
                                  <p>{{ it.Categories.Name }}</p>

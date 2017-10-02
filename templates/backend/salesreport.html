@@ -4,7 +4,7 @@
 {% load widget_tweaks %}
 
 
-
+{% block breadcrump %} Sales Report {% endblock %}
 {% block contentmain %}
 
 
@@ -17,18 +17,13 @@
 									<canvas id="bar1" height="500" width="1000" style="width: 1000px; height: 500px;"></canvas>
 									<script>
 										var barChartData = {
-											labels : ["Mon","Tue","Wed","Thu","Fri","Sat","Mon","Tue","Wed","Thu"],
+											labels : {{days}},
 											datasets : [
 												{
 													fillColor : "#FBB03B",
 													strokeColor : "#FBB03B",
-													data : [25,40,50,65,55,30,20,10,6,4]
+													data : {{sal}}
 												},
-												{
-													fillColor : "#FBB03B",
-													strokeColor : "#FBB03B",
-													data : [30,45,55,70,40,25,15,8,5,2]
-												}
 											]
 
 										};
@@ -43,25 +38,30 @@
 
 
 		 <table class="table">
+			 <thead>
+			<tr>
+					<th>Customer</th>
+					<th>Total Amount</th>
+					<th>Order DateTime</th>
+					<th>Details</th>
+			</tr>
+			</thead>
 		                    <tbody>
-		                    {% for user in users %}
+		                    {% for order in orders %}
 		                        <tr class="table-row">
-		                            <td class="table-img">
-		                               <img src="images/in.jpg" alt="" />
-		                            </td>
 		                            <td class="table-text">
-		                            	<h6>{{ user.username }}</h6>
-		                                <p>{{ user.user_details.address }}</p>
+		                            	<h6>{{ order.user }}</h6>
+		                                <p>{{ order.user.Email }}</p>
 		                            </td>
 		                            <td>
-		                            	<span class="fam">{{ user.user_details.phonenumber }}</span>
+		                            	<span class="fam">{{ order.totalamount }}</span>
 		                            </td>
 		                            <td class="march">
-		                               in 5 days
+		                               <h6>{{ order.checkout_date }}</h6>
 		                            </td>
 
 		                             <td >
-									 <i class="fa fa-star-half-o icon-state-warning"></i>
+									 							 	<a href="{% url 'orderdet' pk=order.pk %}">View Details</a>
 
 		                            </td>
 		                        </tr>

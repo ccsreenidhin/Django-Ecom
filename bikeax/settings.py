@@ -109,7 +109,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
@@ -134,4 +134,4 @@ ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
 REGISTRATION_OPEN = True
 LOGIN_REDIRECT_URL = '/'
-LOGIN_URL = '/accounts/login'
+LOGIN_URL = '/accounts/login/'

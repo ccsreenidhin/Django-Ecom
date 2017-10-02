@@ -8,7 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 {% load static %}
 <html>
 <head>
-<title>Free Style A Ecommerce Category Flat Bootstarp Resposive Website Template | Home :: w3layouts</title>
+<title>Bikeax | Home </title>
 <link href="{% static 'frontend/css/bootstrap.css' %}" rel="stylesheet"  type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="{% static 'frontend/js/jquery-1.11.0.min.js' %}"></script>
@@ -66,7 +66,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 			<div class="col-md-4 top-header-middle">
-				<a href="index.html"><img src="{% static 'frontend/images/logo-4.png' %}" alt="" /></a>
+				<a href="/"><img src="{% static 'frontend/images/logo-4.png' %}" alt="" /></a>
 			</div>
 			<div class="col-md-4 top-header-right">
 				<div class="cart box_1">
@@ -82,6 +82,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</a>
 						<div class="clearfix"> </div>
 						{% else %}
+						<img src="{% static 'frontend/images/cart-2.png' %}" alt="" />
 						Your cart is empty.
 
 				{% endif %}
@@ -197,7 +198,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<img src="{{ product.Image.url }}" alt="" height="268" width="223" />
 								{% endif %}
 								<div class="mask">
-									<span>Quick View</span>
+									<span>Details</span>
 								</div>
 							</a>
 						<h4>{{ product.Name }} </h4>
@@ -223,7 +224,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<img src="{{ product.Image.url }}" alt="" height="268" width="223" />
 								{% endif %}
 								<div class="mask">
-									<span>Quick View</span>
+									<span>Details</span>
 								</div>
 							</a>
 						<h4>{{ product.Name }} </h4>

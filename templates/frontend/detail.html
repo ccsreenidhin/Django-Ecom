@@ -2,6 +2,8 @@
 
 {% load static %}
 
+
+
 {% block content %}
     <div class="container">
         <div class="row" style="margin-top: 6%">
@@ -23,10 +25,12 @@
                         <tr>
                             <td>
                                 <a href="{{ product.get__absolute_url }}">
-                                    <img src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/default.jpg' %} {% endif %}" alt="..." style="height: 130px; width: auto">
+                                   {% if product.Image %}
+                                    <img src="{{ product.Image.url }}" alt="..." style="height: 130px; width: auto">
+                                {% endif %}
                                 </a>
                             </td>
-                            <td>{{ product.name }}</td>
+                            <td>{{ product.Name }}</td>
                             <td>
                                 <form action="{% url 'cart_add' product.id %}" method="post">
                                     {% csrf_token %}
@@ -52,8 +56,9 @@
             </table>
         <p class="text-right">
             <a href="{% url 'index' %}" class="btn btn-default">Continue Shopping</a>
-            <a href="" class="btn btn-primary">Checkout</a>
+            <a href="{% url 'checkout' pk=user.pk %}" class="btn btn-primary">Checkout</a>
         </p>
         </div>
     </div>
 {% endblock %}
+

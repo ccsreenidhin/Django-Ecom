@@ -8,7 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 {% load static %}
 <html>
 <head>
-<title>Free Style A Ecommerce Category Flat Bootstarp Resposive Website Template | Home :: w3layouts</title>
+<title>Bikeax | Category</title>
 <link href="{% static 'frontend/css/bootstrap.css' %}" rel="stylesheet"  type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="{% static 'frontend/js/jquery-1.11.0.min.js' %}"></script>
@@ -66,16 +66,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 			<div class="col-md-4 top-header-middle">
-				<a href="index.html"><img src="{% static 'frontend/images/logo-4.png' %}" alt="" /></a>
+				<a href="/"><img src="{% static 'frontend/images/logo-4.png' %}" alt="" /></a>
 			</div>
 			<div class="col-md-4 top-header-right">
 				<div class="cart box_1">
-						<a href="checkout.html">
-						<h3> <div class="total">
-							<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
+				{% if cart|length > 0 %}
+						<a href="{% url 'cart_detail' %}">
+						<h3>
+							<div class="total">
+							<span class="total">${{ cart.get_total_price }}</span>
+							(<span class="simpleCart">{{ cart|length }} items}</span>)
+						</div>
 							<img src="{% static 'frontend/images/cart-1.png' %}" alt="" />
 						</a>
-						<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+						<div class="clearfix"> </div>
+						{% else %}
+						<img src="{% static 'frontend/images/cart-2.png' %}" alt="" />
+						Your cart is empty.
+
+				{% endif %}
 						<div class="clearfix"> </div>
 					</div>
 			</div>
@@ -150,7 +159,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-md-3 product-left"> 
 					<div class="p-one simpleCart_shelfItem">
 							
-							<a href="single.html">
+							<a href="{% url 'product_detail' pk=product.pk %}">
 								{% if product.Image %}
 									<img src="{{ product.Image.url }}" alt="" height="268" width="223" />
 								{% endif %} 
@@ -159,7 +168,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 							</a>
 						<h4>{{ product.Name }} </h4>
-						<p><a class="item_add" href="#"><i></i> <span class=" item_price">${{ product.Price }}</span></a></p>
+						<p>
+						<a class="item_add" href="{% url 'product_detail' pk=product.pk %}">
+						<i></i> 
+						<span class=" item_price">${{ product.Price }}</span></a></p>
 				
 					</div>
 					</div>

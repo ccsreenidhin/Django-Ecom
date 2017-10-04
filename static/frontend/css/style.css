@@ -312,7 +312,7 @@ ul.callbacks_tabs.callbacks2_tabs {
 /*--end-banner-bottom--*/
 /*--start-shoes--*/
 .shoes {
-	padding: 7em 0px 0px 0px;
+	padding: 7em 0px;
 }
 /*--end-shoes--*/
 /*--start-abt-shoe--*/
@@ -898,14 +898,14 @@ ul.product-qty {
 	font-size: 14px;
 	text-transform: uppercase;
 }
-#id_quantity{
+.product-qty select {
 	border: 1px solid #eee;
 	padding: 0.5em;
 	font-size: 1em;
 	outline: none;
 	cursor: pointer;
 }
-#id_quantity option {
+.product-qty option {
 	border: 1px solid #EEE;
 }
 .single-but {
@@ -959,7 +959,7 @@ ul.size li a:hover {
 	padding: 4em 0px;
 }
 .shoes {
-	padding: 6em 0px 0px 0px;
+	padding: 6em 0px;
 }
 .product {
 	padding: 5em 0px;
@@ -1040,7 +1040,7 @@ ul.size {
 	padding: 30px 15px;
 }
 .shoes {
-	padding: 5em 0px 0px 0px;
+	padding: 5em 0px;
 }
 .product-one {
 	margin-top: 3.5%;
@@ -1201,7 +1201,7 @@ a.simpleCart_empty {
 	padding: 16px 12px 14px 12px;
 }
 .shoes {
-	padding: 4em 0px 0px 0px;
+	padding: 4em 0px;
 }
 .product-left {
 	width: 25%;
@@ -1363,7 +1363,7 @@ ul.unit li span {
 	padding-top: 1.7em;
 }
 .shoes {
-	padding: 3em 0px 0px 0px;
+	padding: 3em 0px;
 }
 .mask span {
 	font-size: 13px;

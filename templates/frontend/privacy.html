@@ -1,0 +1,188 @@
+
+ 
+ <!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<title>Free Style A Ecommerce Category Flat Bootstarp Resposive Website Template | Home :: w3layouts</title>
+<link href="{% static 'frontend/css/bootstrap.css' %}" rel="stylesheet"  type="text/css" media="all" />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="{% static 'frontend/js/jquery-1.11.0.min.js' %}"></script>
+<!-- Custom Theme files -->
+<!--theme-style-->
+<link href="{% static 'frontend/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+<!--//theme-style-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Free Style Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--fonts-->
+<link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:100,300,400,500,700,800,900,100italic,300italic,400italic,500italic,700italic,800italic,900italic' rel='stylesheet' type='text/css' >
+<link href='http://fonts.googleapis.com/css? family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+<!--//fonts-->
+<script type="text/javascript" src="{% static 'frontend/js/move-top.js' %}"></script>
+<script type="text/javascript" src="{% static 'frontend/js/easing.js' %}"></script>
+<script type="text/javascript">
+					jQuery(document).ready(function($) {
+						$(".scroll").click(function(event){
+							event.preventDefault();
+							$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+						});
+					});
+				</script>
+<!-- start menu -->
+<script src="{% static 'frontend/js/simpleCart.min.js' %}"> </script>
+<link href="{% static 'frontend/css/memenu.css' %}" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="{% static 'frontend/js/memenu.js' %}"></script>
+<script>$(document).ready(function(){$(".memenu").memenu();});</script>
+</head>
+<body>
+	<!--top-header-->
+	<div class="container">
+		<div class="pull-right">
+		{% if request.user.is_authenticated %}
+			<p><a href="{% url 'auth_logout' %}" class="simpleCart_empty">LOGOUT</a></p>
+        {% else %}
+             <a class="active" href="{% url 'auth_login' %}">LOGIN</a>
+             <a class="active" href="{% url 'registration_register' %}">REGISTER</a>
+        {% endif %}
+		</div>
+	</div>
+	<div class="top-header">
+	<div class="container">
+		<div class="top-header-main">
+			<div class="col-md-4 top-header-left">
+				<div class="search-bar">
+				<form action="/search/" method="get">{% csrf_token %}
+
+					<input type="text" name="q" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+					<input type="submit" value="">
+					</form>
+				</div>
+			</div>
+			<div class="col-md-4 top-header-middle">
+				<a href="/"><img src="{% static 'frontend/images/logo.png' %}" alt="" /></a>
+			</div>
+			<div class="col-md-4 top-header-right">
+				<div class="cart box_1">
+
+					{% if cart|length > 0 %}
+						<a href="{% url 'cart_detail' %}">
+						<h3>
+							<div class="total">
+							<span class="total">${{ cart.get_total_price }}</span>
+							(<span class="simpleCart">{{ cart|length }} items}</span>)
+						</div>
+							<img src="{% static 'frontend/images/cart-1.png' %}" alt="" />
+						</a>
+						<div class="clearfix"> </div>
+						{% else %}
+						Your cart is empty.
+
+				{% endif %}
+
+					</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+<!--top-header-->
+	<!--bottom-header-->
+	<div class="header-bottom">
+		<div class="container">
+			<div class="top-nav">
+				<ul class="memenu skyblue"><li class="active"><a href="/">Home</a></li>
+				{% if categories %}
+					{% for category in categories %}
+					<li class="grid"><a href="{% url 'category' pk=category.pk %}">{{ category.Name }}</a></li>
+					{% endfor %}
+					{% endif %}
+
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+ 
+	
+	            <h4> PRIVACY POLICY</h4>
+				<P>We don't rent, sell or share your personal information with anyone . Some information is to be passed on to shipping companies, credit card processing companies, vendors, etc. to enable them to perform their functions related to order fulfillment.
+
+
+
+kreedsgears.com collect email addresses and contact information of those who choose to receive our email newsletters or place an order with us.</P><P>
+ The information we collect is used for internal review and used to notify consumers about product updates at our websites.</P><P> kreedsgears.com will not sell your email address to another company, nor do we make our email database available to the public. If you have selected to subscribe to one our our e-mail newsletters you can unsubscribe at any time. 
+
+
+
+kreedsgears.com is like most Websites, use a feature of your browser to set a "cookie" on your computer. We cannot tell your name or any personal information about you based solely on the cookie.</P><P> Unless you specifically tell us your name and other identifying information, we will never know who you are. All the cookie tells us is what functions you perform when you are on the site so that we can keep track of your transaction. A cookie also helps kreedsgears to note particular traffic patterns on our sites so that we can improve products we offer to our customers. Every browser allows you to reject cookies or to choose which cookies you will accept. Rejecting cookies, however, may sometimes interfere with your ability to use all the features and benefits of our site.
+ 
+We will cooperate with law enforcement and judicial authorities, and we may provide personally identifiable information to appropriate government authorities upon receipt of a subpoena or court order, or to cooperate with a law enforcement investigation. We will fully cooperate with law enforcement agencies in identifying those who use our services for illegal activities. We also reserve the right to report to law enforcement agencies activities that we in good faith believe to be illegal. 
+
+This privacy policy is subject to change at the sole discretion of kreedsgears.com. Whenever we modify our privacy policy, we will post the changes in a revised policy statement.</P>
+
+
+	
+	
+
+
+
+	<!--start-footer-->
+	<div class="footer">
+		<div class="container">
+			<div class="footer-top">
+			<div class="col-md-3 footer-left">
+					<h3><a href="aboutus/">ABOUT US</a></h3>
+					
+				</div>
+				<div class="col-md-3 footer-left">
+					<h3><a href="privacy/"> PRIVACY POLICY</a></h3>
+					
+				</div>
+				<div class="col-md-3 footer-left">
+					<h3><a href="terms/">TERMS & CONDITIONS</a></h3>
+					
+				</div>
+				<div class="col-md-3 footer-left">
+					<h3><a href="info/">DELIVERY INFORMATION</a></h3>
+					
+				</div>	
+			</div>
+		</div>
+	</div>
+	<!--end-footer-->
+	<!--end-footer-text-->
+	<div class="footer-text">
+		<div class="container">
+			<div class="footer-main">
+				<p class="footer-class">© 2015 Free Style All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+			</div>
+			<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+		</div>
+		<script type="text/javascript">
+									$(document).ready(function() {
+										/*
+										var defaults = {
+								  			containerID: 'toTop', // fading element id
+											containerHoverID: 'toTopHover', // fading element hover id
+											scrollSpeed: 1200,
+											easingType: 'linear'
+								 		};
+										*/
+
+										$().UItoTop({ easingType: 'easeOutQuart' });
+
+									});
+								</script>
+
+	</div>
+	<!--end-footer-text-->
+</body>
+</html>
+

@@ -26,18 +26,26 @@ urlpatterns = [
     url(r'^dashboard/product/$',dashproduct, name="dashproduct"),
     url(r'^dashboard/addcategory/$',addcategory, name="addcategory"),
     url(r'^dashboard/addproduct/$',addproduct, name="addproduct"),
+    url(r'^product_del/(?P<pk>\d+)/', product_del, name='product_del'),
     url(r'^dashboard/sales/$', salesreport, name="sales"),
-    
+    url(r'^orderdet/(?P<pk>\d+)/', orderdet, name='orderdet'),
+	url(r'^aboutus/$',aboutus,name="aboutus"),
+	url(r'^privacy/$',privacy,name="privacy"),
+	url(r'^terms/$',terms,name="terms"),
+	url(r'^info/$',info,name="info"),
+	
+
     url(r'^$',index ,name="index"),
-    url(r'^checkout$',checkout, name="checkout"),
-    url(r'^category/(?P<pk>\d+)/', categoryview,name='category'),
-    url(r'^search/',search,name="search"),
+    url(r'^checkout/(?P<pk>\d+)/$', checkout, name="checkout"),
+    url(r'^category/(?P<pk>\d+)/', categoryview, name='category'),
+    url(r'^search/',search, name="search"),
+    url(r'^thankyou/',thankyou, name="thankyou"),
+    url(r'^finalthnx/',finalthnx, name="finalthnx"),
     url(r'^user_detail/',user_detail, name="user_detail"),
     url(r'^product/(?P<pk>\d+)/', product_detail, name='product_detail'),
 
     url(r'^cart/$', cart_detail, name='cart_detail'),
     url(r'^cart/add/(?P<product_id>\d+)/$', cart_add, name='cart_add'),
     url(r'^cart/remove/(?P<product_id>\d+)/$', cart_remove, name='cart_remove'),
-    url(r'^CustomerDetail/',CustomerDetail,name="CustomerDetail"),    
     url(r'^accounts/', include('registration.backends.simple.urls')),
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,198 @@
+
+ 
+ <!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<title>Free Style A Ecommerce Category Flat Bootstarp Resposive Website Template | Home :: w3layouts</title>
+<link href="{% static 'frontend/css/bootstrap.css' %}" rel="stylesheet"  type="text/css" media="all" />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="{% static 'frontend/js/jquery-1.11.0.min.js' %}"></script>
+<!-- Custom Theme files -->
+<!--theme-style-->
+<link href="{% static 'frontend/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+<!--//theme-style-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Free Style Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--fonts-->
+<link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:100,300,400,500,700,800,900,100italic,300italic,400italic,500italic,700italic,800italic,900italic' rel='stylesheet' type='text/css' >
+<link href='http://fonts.googleapis.com/css? family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+<!--//fonts-->
+<script type="text/javascript" src="{% static 'frontend/js/move-top.js' %}"></script>
+<script type="text/javascript" src="{% static 'frontend/js/easing.js' %}"></script>
+<script type="text/javascript">
+					jQuery(document).ready(function($) {
+						$(".scroll").click(function(event){
+							event.preventDefault();
+							$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+						});
+					});
+				</script>
+<!-- start menu -->
+<script src="{% static 'frontend/js/simpleCart.min.js' %}"> </script>
+<link href="{% static 'frontend/css/memenu.css' %}" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="{% static 'frontend/js/memenu.js' %}"></script>
+<script>$(document).ready(function(){$(".memenu").memenu();});</script>
+</head>
+<body>
+	<!--top-header-->
+	<div class="container">
+		<div class="pull-right">
+		{% if request.user.is_authenticated %}
+			<p><a href="{% url 'auth_logout' %}" class="simpleCart_empty">LOGOUT</a></p>
+        {% else %}
+             <a class="active" href="{% url 'auth_login' %}">LOGIN</a>
+             <a class="active" href="{% url 'registration_register' %}">REGISTER</a>
+        {% endif %}
+		</div>
+	</div>
+	<div class="top-header">
+	<div class="container">
+		<div class="top-header-main">
+			<div class="col-md-4 top-header-left">
+				<div class="search-bar">
+				<form action="/search/" method="get">{% csrf_token %}
+
+					<input type="text" name="q" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+					<input type="submit" value="">
+					</form>
+				</div>
+			</div>
+			<div class="col-md-4 top-header-middle">
+				<a href="/"><img src="{% static 'frontend/images/logo.png' %}" alt="" /></a>
+			</div>
+			<div class="col-md-4 top-header-right">
+				<div class="cart box_1">
+
+					{% if cart|length > 0 %}
+						<a href="{% url 'cart_detail' %}">
+						<h3>
+							<div class="total">
+							<span class="total">${{ cart.get_total_price }}</span>
+							(<span class="simpleCart">{{ cart|length }} items}</span>)
+						</div>
+							<img src="{% static 'frontend/images/cart-1.png' %}" alt="" />
+						</a>
+						<div class="clearfix"> </div>
+						{% else %}
+						Your cart is empty.
+
+				{% endif %}
+
+					</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+<!--top-header-->
+	<!--bottom-header-->
+	<div class="header-bottom">
+		<div class="container">
+			<div class="top-nav">
+				<ul class="memenu skyblue"><li class="active"><a href="/">Home</a></li>
+				{% if categories %}
+					{% for category in categories %}
+					<li class="grid"><a href="{% url 'category' pk=category.pk %}">{{ category.Name }}</a></li>
+					{% endfor %}
+					{% endif %}
+
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+ 
+	
+	            <h4> TERMS & CONDITIONS</h4>
+				<h1>ACKNOWLEDGEMENT AND ACCEPTANCE OF THE TERMS OF SERVICE</h1>
+<p>Welcome tokreedsgears.com This page states the Terms and Conditions under which you may use this website. Please read this page carefully. If you do not accept the Terms and Conditions stated here, do not use the website.  kreedsgears.com reserves the right to change these Terms and Conditions at any time without notice and with immediate effect. Each visitor agrees to review the website regularly for changes in the Terms and Conditions. By using kreedsgears.com you are agreeing to be bound by these terms of service. These Terms and Conditions, together with privacy policy, and other rules and policies posted on the site, constitute the entire agreement between you and kreedsgears.com with respect to your use of the site, and they supersede all prior communications, proposals, and terms and conditions between you and  kreedsgears.com with respect to this site. Any rights not expressly granted in these Terms and Conditions are reserved.</p>
+
+<h2>APPLICABLE LAW</h2>
+<p>This site is created and controlled by kreedsgears.com reserves the right to make changes to the website and the terms, conditions and disclaimers at any time and without information to the customers/users of the services/website of kreedsgears.com</p>
+
+
+
+<h3>INDEMNITY</h3>
+<p>You agree to indemnify, defend, and hold harmless  kreedsgears.com, its affiliates, and all of their employees, agents, officers, directors, proprietors, partners, representatives, shareholders, servants, attorneys, accountants, predecessors, successors, and assigns from and against any and all claims, proceedings, damages, injuries, liabilities, losses, costs, and expenses (including reasonable attorneys' fees and litigation expenses) relating to or arising from your use of this site or any breach by you of these Terms and Conditions.
+
+This clause shall survive the expiry or termination of this Agreement.</p>
+
+<h4>DISCLAIMER OF WARRANTIES/LIMITATION OF LIABILITY</h4>
+<p>"We as a merchant shall be under no liability whatsoever in respect of any loss or damage arising directly or indirectly out of the decline of authorization for any Transaction, on Account of the Cardholder having exceeded the preset limit mutually agreed by us with our acquiring bank from time to time"</p>
+
+<h5>SALES TAXES</h5>
+<p>kreedsgears.com shows final price to the customer. Any seller or the party selling goods on our website is to pay sales taxes in their own state as per product VAT Applicable.</p>
+
+<h6>RISK OF LOSS</h6>
+<p>The risk of loss and title for items purchased by you pass to you upon kreedsgears.com delivery of the items to the carrier pursuant to kreedsgears.com standard terms of sale.</p>
+
+FORCE MAJEURE
+ <p>kreedsgears.com shall have no liability to you for any interruption or delay in access to the website irrespective of the cause.
+
+</P>
+	
+	
+
+
+
+	<!--start-footer-->
+	<div class="footer">
+		<div class="container">
+			<div class="footer-top">
+			<div class="col-md-3 footer-left">
+					<h3><a href="aboutus/">ABOUT US</a></h3>
+					
+				</div>
+				<div class="col-md-3 footer-left">
+					<h3><a href="privacy/"> PRIVACY POLICY</a></h3>
+					
+				</div>
+				<div class="col-md-3 footer-left">
+					<h3><a href="terms/">TERMS & CONDITIONS</a></h3>
+					
+				</div>
+				<div class="col-md-3 footer-left">
+					<h3><a href="info/">DELIVERY INFORMATION</a></h3>
+					
+				</div>	
+			</div>
+		</div>
+	</div>
+	<!--end-footer-->
+	<!--end-footer-text-->
+	<div class="footer-text">
+		<div class="container">
+			<div class="footer-main">
+				<p class="footer-class">© 2015 Free Style All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+			</div>
+			<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+		</div>
+		<script type="text/javascript">
+									$(document).ready(function() {
+										/*
+										var defaults = {
+								  			containerID: 'toTop', // fading element id
+											containerHoverID: 'toTopHover', // fading element hover id
+											scrollSpeed: 1200,
+											easingType: 'linear'
+								 		};
+										*/
+
+										$().UItoTop({ easingType: 'easeOutQuart' });
+
+									});
+								</script>
+
+	</div>
+	<!--end-footer-text-->
+</body>
+</html>
+

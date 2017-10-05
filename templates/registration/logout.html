@@ -4,6 +4,19 @@
 {% block title %}{% trans "Logged out" %}{% endblock %}
 
 {% block content %}
+<div class="header-bottom">
+		<div class="container">
+			<div class="top-nav">
+				<ul class="memenu skyblue"><li class="active"><a href="/">Home</a></li>
+				{% if categories %}
+					{% for category in categories %}
+					<li class="grid"><a href="{% url 'category' pk=category.pk %}">{{ category.Name }}</a></li>
+					{% endfor %}
+					{% endif %}
+
+			<div class="clearfix"> </div>
+		</div>
+	</div>
 <div class="text-center">
 <p>{% trans "Successfully logged out" %}.</p>
 </div>

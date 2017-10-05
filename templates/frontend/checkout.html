@@ -115,14 +115,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <td>
                                     {{ item.quantity }}
                             </td>
-                            <td>${{ item.total_price }}</td>
+                            <td>₹{{ item.total_price }}</td>
                         </tr>
                     {% endwith %}
                 {% endfor %}
                 <tr style="background-color: #5AC8FA">
                     <td><b>Total</b></td>
                     <td colspan="1"></td>
-                    <td colspan="1"><b>${{ cart.get_total_price }}</b></td>
+                    <td colspan="1"><b>₹{{ cart.get_total_price }}</b></td>
                 </tr>
                 </tbody>
             </table>
@@ -135,49 +135,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="footer">
 		<div class="container">
 			<div class="footer-top">
-				<div class="col-md-3 footer-left">
-					<h3>ABOUT US</h3>
-					<ul>
-						<li><a href="#">Who We Are</a></li>
-						<li><a href="contact.html">Contact Us</a></li>
-						<li><a href="#">Our Sites</a></li>
-						<li><a href="#">In The News</a></li>
-						<li><a href="#">Team</a></li>
-						<li><a href="#">Carrers</a></li>
-					</ul>
+			<div class="col-md-3 footer-left">
+					<h3><a href="aboutus/">ABOUT US</a></h3>
+					
 				</div>
 				<div class="col-md-3 footer-left">
-					<h3>YOUR ACCOUNT</h3>
-					<ul>
-						<li><a href="account.html">Your Account</a></li>
-						<li><a href="#">Personal Information</a></li>
-						<li><a href="contact.html">Addresses</a></li>
-						<li><a href="#">Discount</a></li>
-						<li><a href="#">Track your order</a></li>
-					</ul>
+					<h3><a href="privacy/"> PRIVACY POLICY</a></h3>
+					
 				</div>
 				<div class="col-md-3 footer-left">
-					<h3>CUSTOMER SERVICES</h3>
-					<ul>
-						<li><a href="#">FAQ</a></li>
-						<li><a href="#">Shipping</a></li>
-						<li><a href="#">Cancellation</a></li>
-						<li><a href="#">Returns</a></li>
-						<li><a href="#">Bulk Orders</a></li>
-						<li><a href="#">Buying Guides</a></li>
-					</ul>
+					<h3><a href="terms/">TERMS & CONDITIONS</a></h3>
+					
 				</div>
 				<div class="col-md-3 footer-left">
-					<h3>CATEGORIES</h3>
-					<ul>
-						<li><a href="#">Sports Shoes</a></li>
-						<li><a href="#">Casual Shoes</a></li>
-						<li><a href="#">Formal Shoes</a></li>
-						<li><a href="#">Party Shoes</a></li>
-						<li><a href="#">Ethnic</a></li>
-					</ul>
-				</div>
-				<div class="clearfix"> </div>
+					<h3><a href="info/">DELIVERY INFORMATION</a></h3>
+					
+				</div>	
 			</div>
 		</div>
 	</div>
@@ -186,7 +159,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="footer-text" style="height:4rem;">
 		<div class="container">
 			<div class="footer-main">
-				<p class="footer-class">© 2015 Free Style All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+				<p class="footer-class">© 2018 Style All Rights Reserved | Design by  <a href="http://techstackinnovations.com/" target="_blank">Techstack Innovations</a> </p>
 			</div>
 			<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 		</div>

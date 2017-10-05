@@ -75,7 +75,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<a href="{% url 'cart_detail' %}">
 						<h3>
 							<div class="total">
-							<span class="total">${{ cart.get_total_price }}</span>
+							<span class="total">₹{{ cart.get_total_price }}</span>
 							(<span class="simpleCart">{{ cart|length }} items}</span>)
 						</div>
 							<img src="{% static 'frontend/images/cart-1.png' %}" alt="" />
@@ -110,7 +110,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 
 	<!--bottom-header-->
-	<!--banner-starts-->
+	<div class="shoes">
+		<div class="container">
+			<div class="product-one">
+				{% for post in found_entries %}
+				<div class="col-md-3 product-left">
+					<div class="p-one simpleCart_shelfItem">
+
+							<a href="{% url 'product_detail' pk=post.pk %}">
+								{% if post.Image %}
+									<img src="{{ post.Image.url }}" alt="" height="268" width="223" />
+								{% endif %}
+								<div class="mask">
+									<span>Details</span>
+								</div>
+							</a>
+						<h4>{{ post.Name }}</h4>
+						<p><a class="item_add" href="{% url 'product_detail' pk=post.pk %}"><i></i> <span class=" item_price">₹{{ post.Price }}</span></a></p>
+
+					</div>
+					</div>
+					{% endfor %}
+
+				<div class="clearfix"> </div>
+
+			</div>
+		</div>
+	</div>
+
+<!--banner-starts-->
 	<div class="bnr" id="home">
 		<div  id="top" class="callbacks_container">
 			<ul class="rslides" id="slider4">
@@ -153,82 +181,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!--End-slider-script-->
 
 	<!--start-shoes-->
-	<div class="shoes">
-		<div class="container">
-			<div class="product-one">
-				{% for post in found_entries %}
-				<div class="col-md-3 product-left">
-					<div class="p-one simpleCart_shelfItem">
-
-							<a href="{% url 'product_detail' pk=post.pk %}">
-								{% if post.Image %}
-									<img src="{{ post.Image.url }}" alt="" height="268" width="223" />
-								{% endif %}
-								<div class="mask">
-									<span>Details</span>
-								</div>
-							</a>
-						<h4>{{ post.Name }}</h4>
-						<p><a class="item_add" href="{% url 'product_detail' pk=post.pk %}"><i></i> <span class=" item_price">${{ post.Price }}</span></a></p>
-
-					</div>
-					</div>
-					{% endfor %}
-
-				<div class="clearfix"> </div>
-
-			</div>
-		</div>
-	</div>
-
-
+	
 	<!--start-footer-->
 	<div class="footer">
 		<div class="container">
 			<div class="footer-top">
-				<div class="col-md-3 footer-left">
-					<h3>ABOUT US</h3>
-					<ul>
-						<li><a href="#">Who We Are</a></li>
-						<li><a href="contact.html">Contact Us</a></li>
-						<li><a href="#">Our Sites</a></li>
-						<li><a href="#">In The News</a></li>
-						<li><a href="#">Team</a></li>
-						<li><a href="#">Carrers</a></li>
-					</ul>
+			<div class="col-md-3 footer-left">
+					<h3><a href="aboutus/">ABOUT US</a></h3>
+					
 				</div>
 				<div class="col-md-3 footer-left">
-					<h3>YOUR ACCOUNT</h3>
-					<ul>
-						<li><a href="account.html">Your Account</a></li>
-						<li><a href="#">Personal Information</a></li>
-						<li><a href="contact.html">Addresses</a></li>
-						<li><a href="#">Discount</a></li>
-						<li><a href="#">Track your order</a></li>
-					</ul>
+					<h3><a href="privacy/"> PRIVACY POLICY</a></h3>
+					
 				</div>
 				<div class="col-md-3 footer-left">
-					<h3>CUSTOMER SERVICES</h3>
-					<ul>
-						<li><a href="#">FAQ</a></li>
-						<li><a href="#">Shipping</a></li>
-						<li><a href="#">Cancellation</a></li>
-						<li><a href="#">Returns</a></li>
-						<li><a href="#">Bulk Orders</a></li>
-						<li><a href="#">Buying Guides</a></li>
-					</ul>
+					<h3><a href="terms/">TERMS & CONDITIONS</a></h3>
+					
 				</div>
 				<div class="col-md-3 footer-left">
-					<h3>CATEGORIES</h3>
-					<ul>
-						<li><a href="#">Sports Shoes</a></li>
-						<li><a href="#">Casual Shoes</a></li>
-						<li><a href="#">Formal Shoes</a></li>
-						<li><a href="#">Party Shoes</a></li>
-						<li><a href="#">Ethnic</a></li>
-					</ul>
-				</div>
-				<div class="clearfix"> </div>
+					<h3><a href="info/">DELIVERY INFORMATION</a></h3>
+					
+				</div>	
 			</div>
 		</div>
 	</div>
@@ -237,7 +210,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="footer-text">
 		<div class="container">
 			<div class="footer-main">
-				<p class="footer-class">© 2015 Free Style All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+				<p class="footer-class">© 2018 Style All Rights Reserved | Design by  <a href="http://techstackinnovations.com/" target="_blank">Techstack Innovations</a> </p>
 			</div>
 		</div>
 		<script type="text/javascript">
